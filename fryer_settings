@@ -1,18 +1,15 @@
 type: custom:bubble-card
 card_type: pop-up
-hash: "#fryer_settings"
+hash: '#fryer_settings'
 margin_top_mobile: calc(100vh - 900px)
 margin_top_desktop: calc(100vh - 1190px)
 show_header: false
 close_by_clicking_outside: false
-backdrop_blur: "5"
-bg_blur: "100"
-bg_opacity: "50"
 button_type: name
 styles: |
   #root {
     border: 1px solid rgba(var(--rgb-primary-text-color),0.1);
-    background: rgba(255, 255, 255, 0.1);
+    
     }
 sub_button:
   main: []
@@ -28,7 +25,7 @@ cards:
           action: none
         hold_action:
           action: none
-        icon: ""
+        icon: ''
       - type: spacer
       - type: back
         card_mod:
@@ -247,837 +244,282 @@ cards:
   - square: false
     type: grid
     cards:
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:button-pointer
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Вручную
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Вручную
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Вручную
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Вручную
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:button-pointer
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Вручную' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:french-fries
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Картофель фри
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Картофель фри
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Фри
-            secondary: Картошка
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Картофель фри
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:french-fries
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Картофель фри' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:food-drumstick
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Куриные крылышки
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Куриные крылышки
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Крылышки
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Куриные крылышки
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:food-drumstick
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Куриные крылышки' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:food-steak
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Стейк
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Стейк
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Стейк
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Стейк
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:food-steak
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Стейк' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:sheep
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Каре ягненка
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: Каре
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: select.select_option
-              data:
-                option: Каре ягненка
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Ягнёнка
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Рыба
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:fish
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Каре ягненка' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:fish
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Рыба
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Рыба
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Рыба
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Креветки
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: fas:shrimp
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Рыба' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: fas:shrimp
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Креветки
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Креветки
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Креветки
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Овощи
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:carrot
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Креветки' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:carrot
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Овощи
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Овощи
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Овощи
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Пирог
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:cake-variant
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Овощи' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:cake-variant
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Пирог
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Пирог
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Пирог
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Пицца
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:pizza
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Пирог' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:pizza
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Пицца
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Пицца
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Пицца
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Разморозка
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:snowflake-melt
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Пицца' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:snowflake-melt
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Разморозка
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Разморозка
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Разморозка
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Сухофрукты
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:food-apple
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Разморозка' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:food-apple
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Сухофрукты
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Сухофрукты
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Сухофрукты
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: select.select_option
+          data:
+            option: Йогурт
+          target:
+            entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+        icon: mdi:food-variant
+        color: white
+        icon_tap_action:
+          action: none
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Сухофрукты' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:food-variant
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Йогурт
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            secondary: ""
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: perform-action
-              perform_action: select.select_option
-              data:
-                option: Йогурт
-              target:
-                entity_id: select.xiaomi_ru_917438569_maf65_mode_p_2_8
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            primary: Йогурт
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-        card_mod:
-          style:
-            .: |
-              {% set entity = 'select.xiaomi_ru_917438569_maf65_mode_p_2_8'%}
-              {% if not is_state('binary_sensor.air_fryer_state_on','off')%}
-                {% set state_on = 'Йогурт' %}
-              {% else %}{% endif %}
-              {% include 'bubble_card_stack.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
     columns: 4
     grid_options:
       columns: 12
@@ -1097,120 +539,61 @@ cards:
   - square: false
     type: grid
     cards:
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:heat-wave
-            badge_icon: ""
-            tap_action:
-              action: toggle
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            entity: switch.xiaomi_ru_917438569_maf65_current_keep_warm_p_2_7
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            entity: switch.xiaomi_ru_917438569_maf65_current_keep_warm_p_2_7
-            primary: тепла
-            secondary: Сохранение
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: toggle
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: toggle
+        icon: mdi:heat-wave
+        entity: switch.xiaomi_ru_917438569_maf65_current_keep_warm_p_2_7
+        color: |
+          {% if is_state(config.entity, 'on')%} white
+          {% else %} disabled
+          {% endif %}
+        icon_tap_action:
+          action: none
+        badge_icon: mdi:content-save
+        badge_color: |
+          {% if is_state(config.entity, 'on')%} white
+          {% else %} disabled
+          {% endif %}
+        vertical: true
         card_mod:
-          style:
-            .: >
-              {% set entity =
-              'switch.xiaomi_ru_917438569_maf65_current_keep_warm_p_2_7'%}
-
-              {% set state_on = 'on' %}
-
-
-              {% include 'bubble_card_stack.jinja' %}
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:mushroom-legacy-template-card
-            primary: ""
-            secondary: ""
-            icon: mdi:heat-wave
-            badge_icon: ""
-            tap_action:
-              action: toggle
-            icon_color: "1"
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            layout: horizontal
-            entity: switch.xiaomi_ru_917438569_maf65_preheat_p_2_9
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  {% include 'bubble_card_icon.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
-          - type: custom:mushroom-legacy-template-card
-            entity: switch.xiaomi_ru_917438569_maf65_preheat_p_2_9
-            primary: подогрев
-            secondary: Предварит.
-            icon: ""
-            badge_icon: ""
-            tap_action:
-              action: toggle
-            icon_color: ""
-            layout: horizontal
-            double_tap_action:
-              action: none
-            badge_color: ""
-            fill_container: true
-            picture: ""
-            hold_action:
-              action: none
-            card_mod:
-              style:
-                mushroom-state-info$: |
-                  {% include 'bubble_card_text.jinja' %}
-                .: |
-                  {% include 'mushroom_ha_card_transparent.jinja' %}
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: toggle
+        icon: mdi:heat-wave
+        entity: switch.xiaomi_ru_917438569_maf65_preheat_p_2_9
+        color: |
+          {% if is_state(config.entity, 'on')%} white
+          {% else %} disabled
+          {% endif %}
+        icon_tap_action:
+          action: none
+        badge_icon: mdi:arrow-left-bottom-bold
+        badge_color: |
+          {% if is_state(config.entity, 'on')%} white
+          {% else %} disabled
+          {% endif %}
+        vertical: true
         card_mod:
-          style:
-            .: |
-              {% set entity = 'switch.xiaomi_ru_917438569_maf65_preheat_p_2_9'%}
-              {% set state_on = 'on' %}
-
-              {% include 'bubble_card_stack.jinja' %}
-    columns: 4
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
+    columns: 2
     grid_options:
       columns: 12
       rows: auto
