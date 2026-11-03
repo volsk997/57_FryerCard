@@ -1,18 +1,13 @@
 type: custom:bubble-card
 card_type: pop-up
-hash: "#fryer"
-margin_top_mobile: auto
-margin_top_desktop: auto
+hash: '#fryer'
 show_header: false
-close_by_clicking_outside: false
-backdrop_blur: "5"
-bg_blur: "100"
-bg_opacity: "50"
+close_by_clicking_outside: true
 button_type: name
 styles: |
-  #root {
+  #root { 
     border: 1px solid rgba(var(--rgb-primary-text-color),0.1);
-    background: rgba(255, 255, 255, 0.1);
+     
     }
 sub_button:
   main: []
@@ -30,6 +25,21 @@ cards:
           action: none
         icon: material-symbols-light:multicooker
       - type: spacer
+      - type: template
+        entity: sensor.air_fryer_real_state
+        double_tap_action:
+          action: none
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
+        icon: mdi:information
+        card_mod:
+          style:
+            .: |
+              {% set hover = 'true' %}
+              {% set stating = 'false' %}
+              {% include 'chip_settings_style.jinja' %}
       - type: back
         card_mod:
           style:
@@ -39,7 +49,7 @@ cards:
               {% include 'chip_settings_style.jinja' %}
     card_mod:
       style:
-        mushroom-back-chip:nth-child(3)$: |
+        mushroom-back-chip:last-child$: |
           ha-state-icon {
             --card-mod-icon: mdi:close;
           }
@@ -48,49 +58,38 @@ cards:
     grid_options:
       columns: 12
       rows: auto
-  - type: custom:mushroom-chips-card
-    chips:
-      - type: template
-        entity: switch.girlyand_window
-        tap_action:
-          action: none
-        hold_action:
-          action: none
-        double_tap_action:
-          action: none
-        icon: >
-          {% if is_state('sensor.air_fryer_real_state','Недоступно') %}
-          mdi:alert-circle
-            {% elif is_state('sensor.air_fryer_real_state','Готовка') %} mdi:gas-burner
-            {% elif is_state('sensor.air_fryer_real_state','Завершено') %} mdi:check
-            {% elif is_state('sensor.air_fryer_real_state','Корзина открыта') %} mdi:lock-open-variant
-            {% elif is_state('sensor.air_fryer_real_state','Режим ожидания') %} mdi:sleep
-            {% elif is_state('sensor.air_fryer_real_state','Выключено') %} mdi:power-off
-            {% else %}
-            {% endif %}
-        icon_color: white
-        card_mod:
-          style:
-            .: |
-              {% set scale = '1' %}
-              {% set hover = 'true' %}
-              {% set stating = '1' %}
-              {% set state_on = '' %}
-              {% set color = 'rgba(120,120,120,0.2)' %}
-              {% set hover_color_off = 'rgba(120,120,120,0.2) !important' %}
-              {% include 'chip_settings_style.jinja' %}
-    alignment: center
+  - type: custom:mushroom-template-card
+    entity: switch.girlyand_window
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    double_tap_action:
+      action: none
+    icon: >
+      {% if is_state('sensor.air_fryer_real_state','Недоступно') %}
+      mdi:alert-circle
+        {% elif is_state('sensor.air_fryer_real_state','Готовка') %} mdi:gas-burner
+        {% elif is_state('sensor.air_fryer_real_state','Завершено') %} mdi:check
+        {% elif is_state('sensor.air_fryer_real_state','Корзина открыта') %} mdi:lock-open-variant
+        {% elif is_state('sensor.air_fryer_real_state','Режим ожидания') %} mdi:sleep
+        {% elif is_state('sensor.air_fryer_real_state','Выключено') %} mdi:power-off
+        {% else %}material-symbols-light:multicooker
+        {% endif %}
+    features_position: bottom
+    vertical: true
+    icon_tap_action:
+      action: none
+    grid_options:
+      rows: auto
+      columns: full
+    color: white
     card_mod:
-      style:
-        .: |
-          ha-card {
-             --chip-background: none !important;
-             --chip-border-radius: 1000px;
-             zoom: 6;
-             #--chip-height: 200px;
-             --chip-spacing: {{chip_spacing|default(0)}}px;
-             margin: 2px;
-             }
+      style: |
+        ha-card {
+          background: rgba(0,0,0,0.5) !important;
+          zoom: 2;
+        }
   - type: custom:horizontal-stack-in-card
     cards:
       - type: conditional
@@ -122,7 +121,7 @@ cards:
             style: |
               ha-card {
                 zoom: 1.5;
-                background: none;
+                background: none !important; 
               }
       - type: conditional
         conditions:
@@ -132,7 +131,7 @@ cards:
         card:
           type: custom:mushroom-template-card
           features_position: bottom
-          entity: button.xiaomi_ru_917438569_maf65_start_cook_a_2_1
+          entity: button.xiaomi_maf65_6f56_resume_cook
           grid_options:
             columns: 12
             rows: auto
@@ -147,16 +146,13 @@ cards:
             style: |
               ha-card {
                 zoom: 1.5;
-                background: none;
+                background: none !important;
               }
       - type: conditional
         conditions:
           - condition: state
             entity: sensor.xiaomi_ru_917438569_maf65_status_p_2_1
             state: Программа выполняется…
-          - condition: state
-            entity: sensor.xiaomi_ru_917438569_maf65_status_p_2_1
-            state: Хрустящий гриль
         card:
           type: custom:mushroom-template-card
           features_position: bottom
@@ -175,7 +171,7 @@ cards:
             style: |
               ha-card {
                 zoom: 1.5;
-                background: none;
+                background: none !important;
               }
       - type: conditional
         conditions:
@@ -211,8 +207,28 @@ cards:
             style: |
               ha-card {
                 zoom: 1.5;
-                background: none;
+                background: none !important;
               }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        entity: button.xiaomi_ru_917438569_maf65_cancel_cooking_a_2_2
+        grid_options:
+          columns: 12
+          rows: auto
+        color: white
+        tap_action:
+          action: navigate
+          navigation_path: '#fryer_settings'
+        icon: mdi:dots-horizontal
+        vertical: true
+        icon_tap_action:
+          action: none
+        card_mod:
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none !important;
+            }
     visibility:
       - condition: state
         entity: sensor.air_fryer_real_state
@@ -222,6 +238,29 @@ cards:
         ha-card {
          background: none !important;
         }
-popup_mode: default
+  - type: custom:mushroom-template-card
+    features_position: bottom
+    entity: select.xiaomi_ru_917438569_maf65_mode_p_2_8
+    grid_options:
+      columns: 12
+      rows: auto
+    tap_action:
+      action: toggle
+    vertical: true
+    icon_tap_action:
+      action: none
+    features:
+      - type: select-options
+    card_mod:
+      style: |
+        ha-card {
+          
+          background: none !important; 
+        }
+    visibility:
+      - condition: state
+        entity: sensor.air_fryer_real_state
+        state_not: Недоступно
+popup_mode: fit-content
 card_layout: large
-slide_to_close_distance: "500"
+slide_to_close_distance: '500'
